@@ -156,17 +156,6 @@ class MainActivity : AppCompatActivity() {
         lineChart!!.setPinchZoom(false)
         lineChart!!.isDoubleTapToZoomEnabled = false
 
-        lineChart!!.setXAxisRenderer(CustomXAxisRenderer(lineChart!!.viewPortHandler, lineChart!!.xAxis, lineChart!!.getTransformer(YAxis.AxisDependency.LEFT)))
-
-
-    }
-
-    class CustomXAxisRenderer(viewPortHandler: ViewPortHandler?, xAxis: XAxis?, trans: Transformer?) : XAxisRenderer(viewPortHandler, xAxis, trans) {
-        override fun drawLabel(c: Canvas?, formattedLabel: String, x: Float, y: Float, anchor: MPPointF?, angleDegrees: Float) {
-            val line = formattedLabel.split("\n".toRegex()).toTypedArray()
-            Utils.drawXAxisValue(c, line[0], x, y, mAxisLabelPaint, anchor, angleDegrees)
-            Utils.drawXAxisValue(c, line[1], x + mAxisLabelPaint.textSize, y + mAxisLabelPaint.textSize, mAxisLabelPaint, anchor, angleDegrees)
-        }
     }
 
 }
